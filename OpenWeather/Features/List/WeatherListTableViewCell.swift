@@ -29,12 +29,16 @@ class WeatherListTableViewCell: UITableViewCell {
         titleTextLabel?.text = title
         minTextLabel?.text = String(format:"%.0f%@", min,"\u{00B0}")
         maxTextLabel?.text = String(format:"%.0f%@", max, "\u{00B0}")
-        dateTextLabel?.text = date
+        dateTextLabel?.text = date.toDateInYYYYMMDD()?.weekdayName
+        //print(date)
+        //print(date.toDateInYYYYMMDD()?.weekdayName ?? "cannot convert to date")
     }
    
     func configureHeadshotImageView(_ image: UIImage?) {
         imageView?.backgroundColor = UIColor.randomColor()
         imageView?.image = image?.decompressedImage
+        imageView?.layer.cornerRadius = 20.0
+        imageView?.clipsToBounds = true
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

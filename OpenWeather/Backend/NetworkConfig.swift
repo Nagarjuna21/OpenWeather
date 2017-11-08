@@ -26,6 +26,7 @@ struct JsonResponseKeys {
 
 struct APIKeys {
     static let BaseUrl = "http://api.openweathermap.org/"
+    static let ImageURL = "http://openweathermap.org/img/w/"
 }
 
 struct Methods {

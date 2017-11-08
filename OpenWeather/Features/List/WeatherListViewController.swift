@@ -10,13 +10,16 @@ import UIKit
 
 class WeatherListViewController: UITableViewController{
 
-    //@IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var refresh: UIBarButtonItem!
     @IBOutlet weak var weatherListDataProvider: WeatherListDataProvider!
     lazy var weatherListDataManager = WeatherListDataManager()
-    
+    @IBAction func refreshButton(_ sender: Any) {
+        configureData()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         self.title = Translation.navTitle
         configureData()
         // Do any additional setup after loading the view.
@@ -54,11 +57,10 @@ extension WeatherListViewController {
     }
     
     func displayTableView() {
-        
         tableView.dataSource = weatherListDataProvider
         tableView.delegate = weatherListDataProvider
-        tableView.estimatedRowHeight = 239
-        tableView.rowHeight = 239
+        tableView.estimatedRowHeight = Height.Row
+        tableView.rowHeight = Height.Row
         tableView.allowsSelection = false
         tableView.separatorStyle = .singleLine
         tableView.tableFooterView = UIView(frame: CGRect.zero)
@@ -69,7 +71,7 @@ extension WeatherListViewController {
 extension WeatherListViewController: WeatherListDataManagerDelegate {
     
     func weatherData(_ data: [List]) {
-        if data.count == 0 {
+        if data.count == Int(Count.Value) {
             displayNetworkAlert()
         } else {
             displayTableView()

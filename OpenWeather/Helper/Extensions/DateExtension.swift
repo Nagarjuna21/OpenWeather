@@ -10,10 +10,9 @@ import Foundation
 
 extension Date {
     var weekdayName: String {
-        let formatter = DateFormatter(); formatter.dateFormat = "E"
+        let formatter = DateFormatter(); formatter.dateFormat = "EEEE"
         return formatter.string(from: self as Date)
     }
-
     
     func toStringInYYYYMMDD() -> String {
         let formatter = DateFormatter()

@@ -39,10 +39,7 @@ class NetworkManager {
                 }
             }
         }
-        
-        
     }
-    
     
     class func escapedParameters(_ parameters: [String : AnyObject]) -> String {
         var urlVars = [String]()

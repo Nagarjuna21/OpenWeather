@@ -52,13 +52,44 @@ extension WeatherListDataProvider: UITableViewDelegate {
         guard let model = weatherListDataManager?.lists[indexPath.item] else {
             fatalError("Error with data manager")
         }
-    
-        cell.configureWeatherListCell(model.weatherTitle!, min: (model.minTemparature! - 273.15), max: (model.maxTemparature! - 273.15), date: model.dateTxt!)
+        
+        var minumCelcius = 0.0
+        var maximumCelcius = 0.0
+        
+        if let minCel = model.minTemparature {
+            minumCelcius = minCel - Double(Celsius.Conversion)
+        }
+        if let maxCel = model.maxTemparature {
+            maximumCelcius = maxCel - Double(Celsius.Conversion)
+        }
+        
+        cell.configureWeatherListCell(model.weatherTitle!, min: minumCelcius, max: maximumCelcius, date: model.dateTxt!)
         
         if let timeInterval = model.timeInterval {
             cell.timeTextLabel.text = Date(timeIntervalSince1970: timeInterval).toStringInHHMM()
         }
-        // MARK:- Need to download Image from URL from Network Download Manager here. But no time for it.
+        // MARK:- Downloading Image from URL Async
+        if let image = model.imageUrl {
+            cell.configureHeadshotImageView(image)
+        } else {
+            if model.task == nil {
+                cell.configureHeadshotImageView(nil)
+                guard let imageUrl = URL(string: model.headshot!) else {
+                    return
+                }
+                model.task = downloader.download(imageUrl) { url in
+                    model.task = nil
+                    if url == nil { return }
+                    guard let data = try? Data(contentsOf: url!) else {return}
+                    let image = UIImage(data: data)
+                    model.imageUrl = image
+                    DispatchQueue.main.async {
+                        tableView.reloadRows(at: [indexPath], with: .none)
+                        cell.configureHeadshotImageView(model.imageUrl)
+                    }
+                }
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, didEndDisplaying cell: UITableViewCell, forRowAt indexPath: IndexPath) {

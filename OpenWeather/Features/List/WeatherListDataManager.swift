@@ -48,7 +48,7 @@ class WeatherListDataManager {
             if let weathers = item[JsonResponseKeys.Weather] as? [AnyObject] {
                 if let weather = weathers.first {
                     if let imageName = weather[JsonResponseKeys.Icon] as? String {
-                        list.headshot = String(format: "http://openweathermap.org/img/w/%@.png", imageName)
+                        list.headshot = String(format: "%@%@.png", APIKeys.ImageURL,imageName)
                         list.weatherTitle = weather[JsonResponseKeys.Description] as? String
                         
                     }
