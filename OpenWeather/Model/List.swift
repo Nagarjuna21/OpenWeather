@@ -19,7 +19,13 @@ class List: NSObject{
     var dateTxt: String?
     var task: URLSessionTask?
     
-    override init() {
-        super.init()
+    init(timeInterval: TimeInterval? = nil,  headshot: String? = nil, maxTemparature: Double? = 0.0, minTemparature: Double? = 0.0, weatherTitle: String? = nil, dateTxt: String? = nil) {
+        self.timeInterval = timeInterval
+        self.weatherTitle = weatherTitle
+        self.headshot = headshot
+        self.dateTxt = dateTxt
+        self.maxTemparature = maxTemparature
+        self.minTemparature = minTemparature
+        
     }
 }

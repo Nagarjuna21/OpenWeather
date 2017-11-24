@@ -27,6 +27,7 @@
 		CE50705C1FACCE59003F4083 /* WeatherListDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE50705B1FACCE59003F4083 /* WeatherListDataManager.swift */; };
 		CE50705E1FACCE86003F4083 /* WeatherListDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE50705D1FACCE86003F4083 /* WeatherListDataProvider.swift */; };
 		CE64DCA91FAF7851005D6F6F /* NetworkDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE64DCA81FAF7851005D6F6F /* NetworkDownloader.swift */; };
+		CE90F08F1FC838CD001CEF7A /* WeatherListModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE90F08E1FC838CD001CEF7A /* WeatherListModelTests.swift */; };
 		CEA0C1FC1FB3258C0029A61D /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA0C1FB1FB3258C0029A61D /* StringExtension.swift */; };
 		CEB98FED1FAE1D13003D0BA2 /* WeatherListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB98FEC1FAE1D13003D0BA2 /* WeatherListTableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -68,6 +69,7 @@
 		CE50705B1FACCE59003F4083 /* WeatherListDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherListDataManager.swift; sourceTree = "<group>"; };
 		CE50705D1FACCE86003F4083 /* WeatherListDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherListDataProvider.swift; sourceTree = "<group>"; };
 		CE64DCA81FAF7851005D6F6F /* NetworkDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkDownloader.swift; sourceTree = "<group>"; };
+		CE90F08E1FC838CD001CEF7A /* WeatherListModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherListModelTests.swift; sourceTree = "<group>"; };
 		CEA0C1FB1FB3258C0029A61D /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		CEB98FEC1FAE1D13003D0BA2 /* WeatherListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherListTableViewCell.swift; sourceTree = "<group>"; };
 		DE14A127684215D37F6549AB /* Pods-OpenWeather.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OpenWeather.release.xcconfig"; path = "Pods/Target Support Files/Pods-OpenWeather/Pods-OpenWeather.release.xcconfig"; sourceTree = "<group>"; };
@@ -150,6 +152,8 @@
 		CE50702B1FACC309003F4083 /* OpenWeatherTests */ = {
 			isa = PBXGroup;
 			children = (
+				CE90F08D1FC83880001CEF7A /* List */,
+				CE90F08C1FC83877001CEF7A /* Model */,
 				CE50702C1FACC309003F4083 /* OpenWeatherTests.swift */,
 				CE50702E1FACC309003F4083 /* Info.plist */,
 			);
@@ -219,6 +223,21 @@
 				CE50705B1FACCE59003F4083 /* WeatherListDataManager.swift */,
 				CE50705D1FACCE86003F4083 /* WeatherListDataProvider.swift */,
 				CEB98FEC1FAE1D13003D0BA2 /* WeatherListTableViewCell.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		CE90F08C1FC83877001CEF7A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CE90F08E1FC838CD001CEF7A /* WeatherListModelTests.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CE90F08D1FC83880001CEF7A /* List */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = List;
 			sourceTree = "<group>";
@@ -407,6 +426,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE90F08F1FC838CD001CEF7A /* WeatherListModelTests.swift in Sources */,
 				CE50702D1FACC309003F4083 /* OpenWeatherTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -557,6 +577,7 @@
 				DEVELOPMENT_TEAM = L5Z8XJLGK3;
 				INFOPLIST_FILE = OpenWeather/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.iPhone.OpenWeather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -573,6 +594,7 @@
 				DEVELOPMENT_TEAM = L5Z8XJLGK3;
 				INFOPLIST_FILE = OpenWeather/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.iPhone.OpenWeather;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
